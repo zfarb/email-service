@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const usersApi = createApi({
-    reducerPath: 'auth',
+    reducerPath: 'users',
     baseQuery: fetchBaseQuery({
         baseUrl: '/api'
     }),
@@ -48,11 +48,26 @@ const usersApi = createApi({
                 invalidatesTags: () => {
                     return [{ type: 'AddSurvey' }];
                 }
+            }),
+            getSurveys: builder.query({
+                query: () => {
+                    return {
+                        url: '/surveys',
+                        method: 'GET'
+                    };
+                },
+                providesTags: () => {
+                    return [{ type: 'AddSurvey' }];
+                }
             })
         };
     }
 });
 
-export const { useGetUserQuery, useAddCreditsMutation, useAddSurveyMutation } =
-    usersApi;
+export const {
+    useGetUserQuery,
+    useAddCreditsMutation,
+    useAddSurveyMutation,
+    useGetSurveysQuery
+} = usersApi;
 export { usersApi };

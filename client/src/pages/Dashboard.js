@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
 function Dashboard() {
+    const UserSurveys = lazy(() => import('../components/UserSurveys'));
+
     return (
         <div>
-            Dashboard
             <Link to="/survey">Create Survey</Link>
+            <Suspense fallback={<div>Loading...</div>}>
+                <UserSurveys />
+            </Suspense>
         </div>
     );
 }

@@ -18,6 +18,7 @@ setupListeners(store.dispatch);
 export {
     useGetUserQuery,
     useAddCreditsMutation,
-    useAddSurveyMutation
+    useAddSurveyMutation,
+    useGetSurveysQuery
 } from './apis/usersApi';
 export { store };

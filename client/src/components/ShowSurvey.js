@@ -15,7 +15,7 @@ function ShowSurvey({ data }) {
                 {data.lastResponded
                     ? lastResponded > 0
                         ? `${lastResponded} days`
-                        : 'Today'
+                        : 'Less than 24hrs ago'
                     : 'No responses yet'}
             </div>
         </div>
